@@ -1,0 +1,55 @@
+#!/bin/sh
+#export NIX_IP=45.13.225.125
+#export NIX_GATEWAY=45.13.225.1
+#export NIX_INTERFACE=ens18
+#export NIX_DISK=/dev/sda
+#export NIX_PASSWORD="justfogQ16"
+
+sudo ip addr add $NIX_IP/24 dev $NIX_INTERFACE
+sudo ip link set up dev $NIX_INTERFACE
+sudo ip route add default via $NIX_GATEWAY dev $NIX_INTERFACE
+sudo sh -c "echo 'nameserver 1.1.1.1' >> /etc/resolv.conf"
+sudo sh -c "echo 'nameserver 1.0.0.1' >> /etc/resolv.conf"
+
+sudo wipefs -a $NIX_DISK
+
+sudo parted $NIX_DISK -- mklabel msdos
+sudo parted $NIX_DISK -- mkpart primary 1MB -1GB
+sudo parted $NIX_DISK -- set 1 boot on
+sudo parted $NIX_DISK -- mkpart primary linux-swap -1GB 100%
+sudo mkfs.ext4 -L nixos ${NIX_DISK}1
+y
+
+
+
+sudo mkswap -L swap ${NIX_DISK}2
+sudo swapon ${NIX_DISK}2
+sudo mount /dev/disk/by-label/nixos /mnt
+sudo nixos-generate-config --root /mnt
+sudo sh -c "mkpasswd -m sha-512 $NIX_PASSWORD > /mnt/etc/passwordFile"
+nix-shell -p croc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+croc nasty-laundry
+
+
+sudo cp ./vps.configuration.nix /mnt/etc/nixos/configuration.nix
+sudo nixos-install --no-root-passwd && sudo shutdown now

@@ -1,0 +1,35 @@
+#!/bin/sh
+
+cd $(dirname $0)
+
+echo "========================="
+echo "HOST   : $NIX_HOSTNAME"
+echo "IP     : $NIX_IP"
+echo "GATE   : $NIX_GATEWAY"
+echo "NETW   : $NIX_INTERFACE"
+echo "DISK   : $NIX_DISK"
+echo "PASS   : $NIX_PASSWORD"
+echo "TIME   : $NIX_TIMEZONE"
+echo "ORIGIN : $NIX_WHITELIST"
+echo "========================="
+
+
+cat << EOF > sed_script.sed
+s#\^NIX_HOSTNAME#${NIX_HOSTNAME}#g
+s#\^NIX_TIMEZONE#${NIX_TIMEZONE}#g
+s#\^NIX_DISK#${NIX_DISK}#g
+s#\^NIX_IP#${NIX_IP}#g
+s#\^NIX_GATEWAY#${NIX_GATEWAY}#g
+s#\^NIX_INTERFACE#${NIX_INTERFACE}#g
+EOF
+
+sed -f sed_script.sed ./template.configuration.nix > ./generated.configuration.nix
+rm ./sed_script.sed
+
+echo ""
+echo "Preparing xdotool copy of init script via noVNC to VPS "
+read -p "Press any key when ready"
+pkill croc
+croc send --code nasty-laundry  vps.configuration.nix &
+sleep 5 && sed 's/\\n/Return/g' vps_init | while IFS= read -r line; do xdotool type --delay 50 "$line"; xdotool key Return; sleep 1; done
+

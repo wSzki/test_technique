@@ -1,0 +1,7 @@
+
+/app/payload/build/
+/app/payload/dist/
+/app/payload/media/
+/app/payload/node_modules/
+/app/payload/.DS_Store
+/app/payload/.env
