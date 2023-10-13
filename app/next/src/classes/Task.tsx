@@ -6,6 +6,34 @@ function get_all_tasks() : Task[] {
 	return (task_array)
 }
 
+export function  set_task(task:Task, task_array:Task[]) {
+	//console.log(this);
+	const tasks      = task_array;
+
+	// =====================================================================
+	// Modify Task
+	// =====================================================================
+	if (task){
+		const found_task = tasks.find((it_task:Task) => it_task.identifier === task.identifier);
+		if (found_task) {
+			console.log("Task saved");
+			console.log(tasks);
+			localStorage.setItem('Tasks', JSON.stringify(tasks))
+		}
+	}
+
+	// =========================================================================
+	// Create Task
+	// =========================================================================
+	else {
+		tasks.push(task)
+		console.log(task);
+		console.log(tasks);
+		localStorage.setItem('Tasks', JSON.stringify(tasks))
+	}
+	if (!task)
+		console.log("set_task failed");
+}
 
 
 export default class Task {
@@ -33,6 +61,12 @@ export default class Task {
 		let found_task = tasks.find((task:Task) => task.identifier === this.identifier);
 		return found_task;
 	}
+
+
+	// =========================================================================
+	//  I realized methods are not serialized to localStorage
+	//  so these are useless
+	// =========================================================================
 
 	get_task() : Task {
 		return this
