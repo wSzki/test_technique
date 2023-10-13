@@ -48,29 +48,45 @@ function Description ({task}:any) {
 		set_description(value);
 	},[cancel_trigger])
 
+	if (edit)
+		return (
+			<>
+				<textarea
+					placeholder = {!form_error?"Description":"⚠️ Description is required"}
+					disabled	= {!edit}
+					className   = {`
+						caret-gray-500
+						focus:outline-none
+						min-h-[250px]
+						p-[0.5rem]
+						text-[1.5rem]
+						${form_error?"placeholder:text-red-300":""}
+						`}
 
-	return (
-		<>
-			<textarea
-				placeholder = {!form_error?"Description":"⚠️ Description is required"}
-				disabled	= {!edit}
-				className   = {`
-					caret-gray-500
-					focus:outline-none
-					min-h-[250px]
-					p-[0.5rem]
-					text-[1.5rem]
-					${form_error?"placeholder:text-red-300":""}
-					`}
-
-				value={description}
-				onChange    = {(e)=>{
-					set_description(e.target.value)
-				}}
-			/>
-			<hr />
-		</>
-	)
+					value={description}
+					onChange    = {(e)=>{
+						set_description(e.target.value)
+					}}
+				/>
+				<hr />
+			</>
+		);
+		else
+			return (
+				<>
+					<p className = {`
+						caret-gray-500
+						focus:outline-none
+						min-h-[250px]
+						p-[0.5rem]
+						text-[1.5rem]
+						whitespace-pre
+						`}>
+						{description}
+					</p>
+					<hr />
+				</>
+			);
 }
 
 
@@ -80,7 +96,7 @@ export default function Card ({task}:any) {
 
 	return (
 		<CardContextProvider task={task}>
-			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] max-h-[50vh] w-[50vw]`}>
+			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem]  w-[100%]`}>
 				<Title  task={task}     />
 				<Description task={task} />
 				<div className = {`p-[0.5rem] justify-between flex  pt-[1rem]`}>

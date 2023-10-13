@@ -51,7 +51,7 @@ export function Button({task, save, remove, cancel, modify }:any) {
 
 		new_task.title       = title;
 		new_task.description = description;
-		new_task.set_task();
+		set_task(new_task, task_array);
 		alert(2);
 	}
 
@@ -92,7 +92,7 @@ export function Button({task, save, remove, cancel, modify }:any) {
 					new_task.title       = title;
 					new_task.description = description;
 
-					new_task.set_task();
+					set_task(new_task, task_array);
 					set_popup(false);
 				}}/>
 		)
