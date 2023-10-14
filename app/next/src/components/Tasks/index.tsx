@@ -44,6 +44,11 @@ function splitArray(array:Task[], splits:number) {
 	return subarrays;
 }
 
+const getRandomNumber = (i:number) => {
+    const randomNumber = Math.floor(Math.random() * 999 * (i+88));
+    return randomNumber;
+  };
+
 export default function Tasks () {
 	// =========================================================================
 	//  This looks terrible but uses CSS mediaqueries instead of JS mediaqueries
@@ -61,10 +66,15 @@ export default function Tasks () {
 	let mason3 : any = []
 	let mason4 : any = []
 
-	for (let i = 0; i < 1; i++){mason1.push(<div key={i} className = {`hidden min-[0px]:max-[500px]:flex     flex-col`} style={{width:"98vw"}}>{splitted_array1[i]}</div>)}
-	for (let i = 0; i < 2; i++){mason2.push(<div key={i} className = {`hidden min-[501px]:max-[900px]:flex   flex-col`} style={{width:"48vw"}}>{splitted_array2[i]}</div>)}
-	for (let i = 0; i < 3; i++){mason3.push(<div key={i} className = {`hidden min-[901px]:max-[1300px]:flex  flex-col`} style={{width:"31vw"}}>{splitted_array3[i]}</div>)}
-	for (let i = 0; i < 4; i++){mason4.push(<div key={i} className = {`hidden min-[1301px]:max-[3000px]:flex flex-col`} style={{width:"23vw"}}>{splitted_array4[i]}</div>)}
+	// =========================================================================
+	// The random number as the key is VERY important
+	// else there are some very weird hair pulling rerendering behaviours
+	// https://legacy.reactjs.org/docs/lists-and-keys.html
+	// =========================================================================
+	for (let i = 0; i < 1; i++){mason1.push(<div key={getRandomNumber(i)} className = {`hidden min-[0px]:max-[500px]:flex     flex-col`} style={{width:"98vw"}}>{splitted_array1[i]}</div>)}
+	for (let i = 0; i < 2; i++){mason2.push(<div key={getRandomNumber(i)} className = {`hidden min-[501px]:max-[900px]:flex   flex-col`} style={{width:"48vw"}}>{splitted_array2[i]}</div>)}
+	for (let i = 0; i < 3; i++){mason3.push(<div key={getRandomNumber(i)} className = {`hidden min-[901px]:max-[1300px]:flex  flex-col`} style={{width:"31vw"}}>{splitted_array3[i]}</div>)}
+	for (let i = 0; i < 4; i++){mason4.push(<div key={getRandomNumber(i)} className = {`hidden min-[1301px]:max-[3000px]:flex flex-col`} style={{width:"23vw"}}>{splitted_array4[i]}</div>)}
 
 	return (
 		<div className = {`flex w-full justify-center pb-[60px] overflow-hidden`}>
