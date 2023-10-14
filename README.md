@@ -8,6 +8,8 @@ The front-end framework used is `Next.js` with `TSX`, but there is no advantage 
 I've voluntarily kept the dependencies to a bare minimum :\
 `Next` + `React` ( + `react-icons` ) + `Tailwind`
 
+A running demo can be seen (here)[https://test-technique-powder.vercel.app/]
+
 ---
 
 # Build and run
@@ -15,7 +17,7 @@ I've voluntarily kept the dependencies to a bare minimum :\
 #### Dependencies
 `make`\
 `docker`\
-`docker-compose`\
+`docker-compose`
 
 
 #### Building the app
