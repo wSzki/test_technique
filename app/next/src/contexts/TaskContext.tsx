@@ -17,6 +17,8 @@ interface TaskContextType {
 	set_popup                : Dispatch<SetStateAction<boolean>>;
 	save_trigger             : boolean;
 	set_save_trigger         : Dispatch<SetStateAction<boolean>>;
+	search				     : string;
+	set_search			     : Dispatch<SetStateAction<string>>;
 }
 
 
@@ -36,13 +38,15 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
 	const [task_component_array, set_task_component_array] = useState<React.ReactNode[]>([]);
 	const [popup,                set_popup]                = useState(false);
 	const [save_trigger,         set_save_trigger]         = useState(false);
+	const [search,               set_search]               = useState("");
 
 	return (
 		<TaskContext.Provider value={{
 			task_array,     task_component_array,
 			set_task_array, set_task_component_array,
 			popup,          set_popup,
-			save_trigger,   set_save_trigger
+			save_trigger,   set_save_trigger,
+			search,         set_search
 			}}
 		>
 			{children}

@@ -6,7 +6,7 @@ import Card             from "@/components/Card";
 import {useTaskContext} from "@/contexts/TaskContext";
 
 function TaskFactory () {
-	const { task_array } = useTaskContext();
+	const {task_array} = useTaskContext();
 	const [TaskInputComponentArray, set_TaskInputComponentArray] = useState<any[]>([]);
 
 	// =========================================================================
@@ -16,10 +16,11 @@ function TaskFactory () {
 	// =========================================================================
 	let key = 0;
 	useEffect(() => {
+
 		const array = task_array.map((task:Task) => {
 
 			// =================================================================
-			//  The <Card/> component handles the add/remove task functionality 
+			//  The <Card/> component handles the add/remove task functionality
 			//  If you're looking for the next step, this is it
 			// =================================================================
 			return <Card key={key++} task={task}/>
@@ -64,7 +65,8 @@ export default function Tasks () {
 	for (let i = 0; i < 4; i++){mason4.push(<div key={i} className = {`hidden min-[1301px]:max-[3000px]:flex flex-col`} style={{width:"23vw"}}>{splitted_array4[i]}</div>)}
 
 	return (
-		<div className = {`flex w-full justify-center pb-[60px]`}>
+		<div className = {`flex w-full justify-center pb-[60px] overflow-hidden`}>
+			{!array.length && <p className = {`flex justify-center pt-[40vh] absolute w-screen text-[30px]`}>No tasks to show</p>}
 			{mason1}
 			{mason2}
 			{mason3}

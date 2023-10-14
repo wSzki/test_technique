@@ -8,7 +8,7 @@ import {MdAssignmentAdd} from 'react-icons/md'
 // =============================================================================
 
 export default function Header () {
-	const {popup, set_popup} = useTaskContext();
+	const {popup, set_popup, set_search} = useTaskContext();
 	return (
 		<div className = {`
 			flex
@@ -18,7 +18,11 @@ export default function Header () {
 			text-white
 			`}>
 			<SiTask className = {`text-[30px]`}/>
+
+			<div className = {`flex`}>
+				<input placeholder="Search" onChange={(e:any)=>{set_search(e.target.value)}} className = {`rounded-lg mr-[1rem] pl-[1rem] text-black`}/>
 			<MdAssignmentAdd onClick={()=>{set_popup(!popup)}} className = {`text-[25px] h-full`}/>
+			</div>
 		</div>
 	)
 }

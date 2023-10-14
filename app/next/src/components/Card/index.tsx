@@ -1,15 +1,43 @@
 
-import { CardContextProvider } from '@/contexts/cardContext';
-import {Button}                from '@/components/Button'
-import InputTitle              from './InputTitle'
-import InputDescription        from './InputDescription';
-import { useCardContext } from '@/contexts/cardContext';
+import {CardContextProvider} from '@/contexts/cardContext';
+import {Button}              from '@/components/Button'
+import {useCardContext}      from '@/contexts/cardContext';
+import {useTaskContext}      from "@/contexts/TaskContext";
+import InputTitle            from './InputTitle'
+import InputDescription      from './InputDescription';
 
 
-function CardFrame ({children}:any) {
+function CardFrame ({task, children}:any) {
 	const {completed} = useCardContext();
+	const {search} = useTaskContext();
+
+	// =========================================================================
+	// The search query is parsed here
+	// Hides the card if no match
+	// =========================================================================
+	let visible = true;
+	if (search.length){
+		if (task.title.toLowerCase().includes(search.toLowerCase()))
+			visible = true;
+		if (task.description.toLowerCase().includes(search.toLowerCase()))
+			visible = true;
+		else
+			visible = false;
+	}
+
 	return (
-		<div className = {` ${completed?"bg-gray-200 text-gray-400":"bg-white"}  flex m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col p-[0.5rem] `}>
+		<div className = {`
+			${completed?"bg-gray-200 text-gray-400":"bg-white"}
+			${visible?"flex":"hidden"}
+			m-[1rem]
+			rounded-xl
+			shadow-lg
+			border-gray-200
+			border-[1px]
+			flex-col
+			p-[0.5rem]
+			`}
+		>
 			{children}
 		</div>
 	)
@@ -41,11 +69,9 @@ export default function Card ({task}:any) {
 		)
 	}
 
-
-
 	return (
 		<CardContextProvider task={task}>
-			<CardFrame>
+			<CardFrame task={task}>
 				<InputTitle       task={task} />
 				<InputDescription task={task} />
 				<CardButtons/>
