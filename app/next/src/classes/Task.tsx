@@ -29,7 +29,6 @@ export function delete_task (task:Task, task_array:Task[], set_task_array:any) {
 	if (found_task) {
 		const new_task_array = task_array.filter((it_task:any) => it_task.identifier !== task.identifier);
 		set_task_array(new_task_array);
-		console.log(new_task_array);
 		localStorage.setItem('Tasks', JSON.stringify(new_task_array))
 	}
 }

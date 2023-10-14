@@ -17,7 +17,6 @@ function TaskFactory () {
 	// =========================================================================
 	let key = 0;
 	useEffect(() => {
-		console.log(task_array);
 
 		const array = task_array.map((task:Task) => {
 

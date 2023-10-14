@@ -21,8 +21,8 @@ interface TaskContextType {
 	set_search			     : Dispatch<SetStateAction<string>>;
 	save_success             : boolean;
 	set_save_success         : Dispatch<SetStateAction<boolean>>;
-	no_search_results        : boolean;
-	set_no_search_results    : Dispatch<SetStateAction<boolean>>;
+	search_result_found      : boolean;
+	set_search_result_found  : Dispatch<SetStateAction<boolean>>;
 }
 
 
@@ -44,17 +44,17 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
 	const [save_trigger,         set_save_trigger]         = useState(false);
 	const [search,               set_search]               = useState("");
 	const [save_success,         set_save_success]         = useState(false);
-	const [no_search_results,    set_no_search_results]    = useState(false);
+	const [search_result_found,  set_search_result_found]  = useState(true);
 
 	return (
 		<TaskContext.Provider value={{
-			task_array,        task_component_array,
-			set_task_array,    set_task_component_array,
-			popup,             set_popup,
-			save_trigger,      set_save_trigger,
-			search,            set_search,
-			save_success,      set_save_success,
-			no_search_results, set_no_search_results
+			task_array,          task_component_array,
+			set_task_array,      set_task_component_array,
+			popup,               set_popup,
+			save_trigger,        set_save_trigger,
+			search,              set_search,
+			save_success,        set_save_success,
+			search_result_found, set_search_result_found
 			}}
 		>
 			{children}

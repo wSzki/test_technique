@@ -1,13 +1,11 @@
-import {useEffect}      from 'react'
-import {useRouter}      from 'next/router';
-import type {Metadata}  from 'next'
-
-import {useTaskContext} from '@/contexts/TaskContext'
-
-import Frame            from '@/components/Frame'
-import Popup            from '@/components/Popup'
-import PopupSaveSuccess from '@/components/PopupSaveSuccess'
-import Tasks            from '@/components/Tasks'
+import {useEffect}         from 'react'
+import {useRouter}         from 'next/router';
+import {useTaskContext}    from '@/contexts/TaskContext'
+import Frame               from '@/components/Frame'
+import Popup               from '@/components/Popup'
+import PopupSaveSuccess    from '@/components/PopupSaveSuccess'
+import PopupNoSearchResult from '@/components/PopupNoSearchResult';
+import Tasks               from '@/components/Tasks'
 
 // =============================================================================
 // ----------------------------------- MAIN ------------------------------------
@@ -53,7 +51,11 @@ export default function Home() {
 			{/* ============================================================ */}
 			<Popup/>
 
+			{/* ============================================================ */}
+			{/* ------------- Popup form inform successful save ------------ */}
+			{/* ============================================================ */}
 			<PopupSaveSuccess/>
+			<PopupNoSearchResult/>
 
 
 		</Frame>

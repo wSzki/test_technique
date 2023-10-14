@@ -9,7 +9,12 @@ import { useEffect } from 'react';
 // =============================================================================
 
 export default function Header () {
-	const {popup, set_popup, search, set_search, task_array, set_no_search_results} = useTaskContext();
+	const {
+		set_search_result_found,
+		popup,  set_popup,
+		search, set_search,
+		task_array
+	} = useTaskContext();
 
 
 	useEffect(()=>{
@@ -19,12 +24,14 @@ export default function Header () {
 				const descriptionMatch = task.description.toLowerCase().includes(search.toLowerCase());
 				return titleMatch || descriptionMatch;
 			});
-			if (filteredTasks.length > 0) {
-				set_no_search_results(false)
-				return ;
-			}
+			if (filteredTasks.length > 0)
+				set_search_result_found(true)
+			else
+				set_search_result_found(false)
 		}
-		set_no_search_results(true)
+		else {
+			set_search_result_found(true)
+		}
 
 	},[search])
 
