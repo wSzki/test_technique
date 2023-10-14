@@ -2,14 +2,14 @@ import {useTaskContext} from '@/contexts/TaskContext'
 import {useEffect} from 'react'
 
 
-export default function name ({children}:any) {
+export default function PopupSaveSuccess ({children}:any) {
 	const {save_success, set_save_success} = useTaskContext();
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			set_save_success(false);
 		}, 3000);
 		return () => clearTimeout(timer);
-	}, [save_success]);
+	}, [save_success, set_save_success]);
 
 	return (
 		<>
