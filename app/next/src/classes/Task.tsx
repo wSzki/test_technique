@@ -1,3 +1,11 @@
+
+
+
+// =============================================================================
+//  Started with a class but eventually realized localStorage
+//  doesn't handle class methods, so exported set_task() to a function
+// =============================================================================
+
 export default class Task {
 	title       : string;
 	description : string;
@@ -16,10 +24,19 @@ export default class Task {
 	}
 }
 
-export function  set_task(task:Task, task_array:Task[]) {
+export function delete_task (task:Task, task_array:Task[], set_task_array:any) {
+	const found_task = task_array.find((it_task:Task) => it_task.identifier === task.identifier);
+	console.log(task_array);
+	if (found_task) {
+		const new_task_array = task_array.filter((it_task:any) => it_task.identifier !== task.identifier);
+		set_task_array(new_task_array);
+		localStorage.setItem('Tasks', JSON.stringify(new_task_array))
+	}
+}
 
+export function  set_task(task:Task, task_array:Task[], set_task_array:any) {
 	// =====================================================================
-	// Modify Task If identifier is found
+	// Modify Task if identifier is found
 	// =====================================================================
 	const found_task = task_array.find((it_task:Task) => it_task.identifier === task.identifier);
 	if (found_task) {
@@ -28,10 +45,10 @@ export function  set_task(task:Task, task_array:Task[]) {
 
 	// =========================================================================
 	// Create Task if it doesn't exist
-	// Pushing to array, triggering rerender
 	// =========================================================================
 	else {
 		task_array.push(task)
+		set_task_array(task_array)
 		localStorage.setItem('Tasks', JSON.stringify(task_array))
 	}
 }

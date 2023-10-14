@@ -6,7 +6,7 @@ import Card             from "@/components/Card";
 import {useTaskContext} from "@/contexts/TaskContext";
 
 function TaskFactory () {
-	const { save_trigger, task_array } = useTaskContext();
+	const { task_array } = useTaskContext();
 	const [TaskInputComponentArray, set_TaskInputComponentArray] = useState<any[]>([]);
 
 	// =========================================================================
@@ -26,7 +26,7 @@ function TaskFactory () {
 
 		})
 		set_TaskInputComponentArray(array)
-	}, [save_trigger, task_array.length])
+	}, [task_array.length])
 	return TaskInputComponentArray;
 }
 

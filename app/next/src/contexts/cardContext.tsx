@@ -1,4 +1,7 @@
-import React, { createContext, useReducer, useContext, useState } from 'react';
+import React           from 'react';
+import {createContext} from 'react';
+import {useContext}    from 'react';
+import {useState}      from 'react';
 
 export const cardContext:any = createContext({});
 
@@ -27,7 +30,7 @@ export const CardContextProvider = ({children, task, invert_edit_logic}:any) => 
 
 
 
-export const useCardContext : any= () => {
+export const useCardContext : any = () => {
 	const context = useContext(cardContext);
 	if (!context) {
 		throw new Error('Card context error');

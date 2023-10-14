@@ -17,7 +17,7 @@ export default function Card ({task}:any) {
 				{/* ==================================================== */}
 				{/*  These are only visible when <Button modify/> is not */}
 				{/* ==================================================== */}
-				<Button remove/>
+				<Button remove task={task}/>
 				<div>
 					<Button save task={task}/>
 					<Button cancel/>
@@ -29,7 +29,6 @@ export default function Card ({task}:any) {
 			</div>
 		)
 	}
-
 	return (
 		<CardContextProvider task={task}>
 			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] `}>
