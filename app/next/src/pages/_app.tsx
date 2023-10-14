@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import type { AppProps               } from 'next/app';
 import type { NextPage               } from 'next'
 import type { ReactElement,ReactNode } from 'react'
+import Head                            from 'next/head'
 
 import '@/styles/globals.css'
 import {TaskProvider} from '@/contexts/TaskContext'
@@ -34,6 +35,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout ) {
 			justify-between
 			${inter.className}
 			`}>
+
+			<Head>
+				<title>Task Manager - Powder</title>
+				<meta name = "description" content = "Skill test completed by wsz" key = "desc" />
+			</Head>
 
 			<TaskProvider>
 				<Header/>

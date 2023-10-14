@@ -4,7 +4,6 @@ import {useEffect} from 'react'
 
 export default function name ({children}:any) {
 	const {save_success, set_save_success} = useTaskContext();
-	console.log(save_success);
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			set_save_success(false);

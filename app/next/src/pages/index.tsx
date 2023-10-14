@@ -1,5 +1,6 @@
 import {useEffect}      from 'react'
 import {useRouter}      from 'next/router';
+import type {Metadata}  from 'next'
 
 import {useTaskContext} from '@/contexts/TaskContext'
 
@@ -58,5 +59,4 @@ export default function Home() {
 		</Frame>
 	)
 }
-
 
