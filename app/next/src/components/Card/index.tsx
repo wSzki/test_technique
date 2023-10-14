@@ -19,7 +19,7 @@ function CardFrame ({task, children}:any) {
 	if (search.length){
 		if (task.title.toLowerCase().includes(search.toLowerCase()))
 			visible = true;
-		if (task.description.toLowerCase().includes(search.toLowerCase()))
+		else if (task.description.toLowerCase().includes(search.toLowerCase()))
 			visible = true;
 		else
 			visible = false;
