@@ -3,7 +3,7 @@ version: '3'
 services:
   test_technique:
     image          : node:lts
-    ports          : ["${NEXT_PORT}"]     # MODIFY THE LAST IP NUMBER (1)
+    ports          : ["${NEXT_PORT}"] 
     restart        : always
     working_dir    : /home/node/app/
     command        : sh -c "${NEXT_COMMAND}"
