@@ -1,74 +1,12 @@
 version: '3'
 
 services:
-# ==============================================================================
-# ---------------------------------- PAYLOAD -----------------------------------
-# ==============================================================================
-  #payload:
-    #tty: true
-    #image           : node:lts
-    #networks        : [mongo, payload]
-    #ports           : ["${PAYLOAD_PORT}"]
-    #depends_on      : [mongo]
-    #restart         : always
-    #working_dir     : /home/node/app/
-    #command         : sh -c "${PAYLOAD_COMMAND}"
-
-    #volumes         : [./payload:/home/node/app]
-    #environment     :
-      #NODE_ENV                 : "${NODE_ENV}"
-      #PAYLOAD_URL              : ${PAYLOAD_URL}
-      #PAYLOAD_PUBLIC_URL       : ${PAYLOAD_URL}
-      #PAYLOAD_SECRET           : ${PAYLOAD_SECRET}
-      #PAYLOAD_PUBLIC_ANALYTICS : ${UMAMI_URL}
-      #CORS_WHITELIST_A         : ${NEXT_URL}
-      #CORS_WHITELIST_B         : http://localhost:3002
-      #CORS_WHITELIST_C         : http://localhost:3002
-      #DATABASE_URI             : mongodb://mongo:27017/payload
-      #BACK_PORT                : 3000
-      #PAYLOAD_SEED             : true
-      #ADMIN_ROUTE              : /admin
-      #FREE_ID                  : 928
-      #FREE_KEY                 : 2pv
-
-# ==============================================================================
-# ------------------------------------ NEXT ------------------------------------
-# ==============================================================================
   test_technique:
     image          : node:lts
     ports          : ["${NEXT_PORT}"]     # MODIFY THE LAST IP NUMBER (1)
-    #networks       : [payload]
-    #depends_on     : [payload]
     restart        : always
     working_dir    : /home/node/app/
     command        : sh -c "${NEXT_COMMAND}"
     volumes        : [./next:/home/node/app]
     environment     :
       NODE_ENV    : "${NODE_ENV}"
-      #PAYLOAD_URL : ${PAYLOAD_URL}
-
-
-# ==============================================================================
-# ----------------------------------- MONGO ------------------------------------
-# ==============================================================================
-  #mongo:
-    #image          : mongo:7.0
-    #restart        : always
-    #networks       : [mongo]
-    #command        : [--storageEngine=wiredTiger]
-    #volumes        : [payload-db:/data/db]
-
-# ==============================================================================
-# ---------------------------------- VOLUMES -----------------------------------
-# ==============================================================================
-#volumes:
-  #payload-db:
-
-# ==============================================================================
-# ---------------------------------- NETWORKS ----------------------------------
-# ==============================================================================
-networks:
-  #mongo:
-    #driver: bridge
-  payload:
-    driver: bridge
