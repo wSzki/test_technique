@@ -1,6 +1,4 @@
 
-
-
 export default function Frame ({children}:any) {
 	return (
 		<div className=
