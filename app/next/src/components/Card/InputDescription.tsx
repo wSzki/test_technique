@@ -28,7 +28,7 @@ export default function InputDescription ({task, nocheck}:any) {
 						focus:outline-none
 						min-h-[250px]
 						p-[0.5rem]
-						text-[1.5rem]
+						text-[1.2rem]
 						${form_error && nocheck?"placeholder:text-red-300":""}
 						${completed && !nocheck?"bg-gray-200":"bg-white"}
 						`}

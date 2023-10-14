@@ -38,7 +38,7 @@ export default function Title ({task, nocheck}:any) {
 						caret-gray-500
 						p-[0.5rem]
 						pt-[0px]
-						text-[2rem]
+						text-[1.5rem]
 						${completed && !nocheck?"bg-gray-200":"bg-white"}
 						${form_error?"placeholder:text-red-300":""}
 						`}
