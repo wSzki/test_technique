@@ -19,6 +19,7 @@ export function Button({task, save, remove, cancel, modify }:any) {
 	const {
 		set_popup,
 		task_array, set_task_array,
+		save_success, set_save_success
 	} = useTaskContext();
 
 	// =========================================================================
@@ -82,7 +83,10 @@ export function Button({task, save, remove, cancel, modify }:any) {
 					// =========================================================
 					// If not possible to edit task, create one
 					// =========================================================
-					edit_task() || create_task()
+					const res = (edit_task() || create_task())
+					//if (res)
+					set_save_success(true);
+
 					set_popup(false);
 					set_edit(false)
 				}}

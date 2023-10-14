@@ -5,6 +5,7 @@ import {useTaskContext} from '@/contexts/TaskContext'
 
 import Frame            from '@/components/Frame'
 import Popup            from '@/components/Popup'
+import PopupSaveSuccess from '@/components/PopupSaveSuccess'
 import Tasks            from '@/components/Tasks'
 
 // =============================================================================
@@ -50,6 +51,9 @@ export default function Home() {
 			{/* ------------- Popup form to generate new tasks ------------- */}
 			{/* ============================================================ */}
 			<Popup/>
+
+			<PopupSaveSuccess/>
+
 
 		</Frame>
 	)
