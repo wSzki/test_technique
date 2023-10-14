@@ -3,6 +3,17 @@ import { CardContextProvider } from '@/contexts/cardContext';
 import {Button}                from '@/components/Button'
 import InputTitle              from './InputTitle'
 import InputDescription        from './InputDescription';
+import { useCardContext } from '@/contexts/cardContext';
+
+
+function CardFrame ({children}:any) {
+	const {completed} = useCardContext();
+	return (
+		<div className = {` ${completed?"bg-gray-200 text-gray-400":"bg-white"}  flex m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col p-[0.5rem] `}>
+			{children}
+		</div>
+	)
+}
 
 // =============================================================================
 // This is the main card component, representing a task in the main window
@@ -29,13 +40,16 @@ export default function Card ({task}:any) {
 			</div>
 		)
 	}
+
+
+
 	return (
 		<CardContextProvider task={task}>
-			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] `}>
+			<CardFrame>
 				<InputTitle       task={task} />
 				<InputDescription task={task} />
 				<CardButtons/>
-			</div>
+			</CardFrame>
 		</CardContextProvider>
 	)
 }
@@ -49,8 +63,8 @@ export function PopupCard ({task}:any) {
 	return (
 		<CardContextProvider task={task} invert_edit_logic>
 			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] max-h-[50vh] w-[50vw]`}>
-				<InputTitle  task={task}     />
-				<InputDescription task={task} />
+				<InputTitle nocheck task={task}     />
+				<InputDescription nocheck task={task} />
 				<div className = {`p-[0.5rem] justify-between flex  pt-[1rem]`}>
 					<div/>
 					<div>

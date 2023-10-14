@@ -12,6 +12,7 @@ export const CardContextProvider = ({children, task, invert_edit_logic}:any) => 
 	const [edit,           set_edit]           = useState(invert_edit_logic?true:false);
 	const [cancel_trigger, set_cancel_trigger] = useState(false);
 	const [save_trigger,   set_save_trigger]   = useState(false);
+	const [completed,      set_completed]      = useState(task?task.completed:false);
 
 	return (
 		<cardContext.Provider
@@ -21,7 +22,8 @@ export const CardContextProvider = ({children, task, invert_edit_logic}:any) => 
 				form_error,     set_form_error,
 				edit,           set_edit,
 				cancel_trigger, set_cancel_trigger,
-				save_trigger,   set_save_trigger
+				save_trigger,   set_save_trigger,
+				completed,      set_completed
 			}}>
 			{children}
 		</cardContext.Provider>

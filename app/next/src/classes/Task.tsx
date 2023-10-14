@@ -35,6 +35,7 @@ export function delete_task (task:Task, task_array:Task[], set_task_array:any) {
 }
 
 export function  set_task(task:Task, task_array:Task[], set_task_array:any) {
+	console.log(task);
 	// =====================================================================
 	// Modify Task if identifier is found
 	// =====================================================================

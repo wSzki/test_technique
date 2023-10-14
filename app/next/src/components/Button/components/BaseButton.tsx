@@ -1,9 +1,9 @@
 
 import {useCardContext} from '@/contexts/cardContext';
 
-const common_button_styles = " rounded-md shadow-lg w-[4rem]  text-[white] p-[5px] ml-[10px] "
+const common_button_styles = " rounded-md shadow-lg w-[4rem]  text-[white] p-[5px]"
 
-export default function BaseButton ({color, textwhite, value, onClick, invert}:any) {
+export default function BaseButton ({color, textwhite, value, onClick, invert, padding}:any) {
 	const {edit} = useCardContext();
 	if (!invert) {
 		return (
@@ -14,6 +14,7 @@ export default function BaseButton ({color, textwhite, value, onClick, invert}:a
 					${textwhite?"text-white":"text-black"}
 					${common_button_styles}
 					${color}
+					${padding? "ml-[5px]":""}
 					`}>
 				{value}
 			</button>

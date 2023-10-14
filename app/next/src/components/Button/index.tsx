@@ -125,6 +125,7 @@ export function Button({task, save, remove, cancel, modify }:any) {
 	if (cancel) {
 		return (
 			<BaseButton
+				padding
 				color     = "bg-yellow-400"
 				value     = "Cancel"
 				onClick={()=>{

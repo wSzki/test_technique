@@ -2,7 +2,7 @@
 import { useEffect      } from 'react'
 import { useCardContext } from '@/contexts/cardContext';
 
-export default function InputDescription ({task}:any) {
+export default function InputDescription ({task, nocheck}:any) {
 	let value = task ? task.description : "";
 
 	const {
@@ -28,7 +28,7 @@ export default function InputDescription ({task}:any) {
 						min-h-[250px]
 						p-[0.5rem]
 						text-[1.5rem]
-						${form_error?"placeholder:text-red-300":""}
+						${form_error && nocheck?"placeholder:text-red-300":""}
 						`}
 
 					value={description}
