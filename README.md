@@ -12,6 +12,8 @@ I've voluntarily kept the dependencies to a bare minimum :\
 ## Live Demo
 A running demo can be seen [here](https://test-technique-powder.vercel.app/).
 
+![screenshot](https://github.com/wSzki/test_technique/assets/59784520/95ea5579-ab37-4f7d-bf31-6903bd0f8a03)
+
 ## Build and run
 
 #### Dependencies
