@@ -1,6 +1,6 @@
 # Task Manager- Powder
 
-# Hello
+## Hello
 This repository contains a front-end React webapp - a task manager.
 
 The front-end framework used is `Next.js` with `TSX`, but there is no advantage over using a plain `npx create-react-app`.
@@ -8,12 +8,10 @@ The front-end framework used is `Next.js` with `TSX`, but there is no advantage 
 I've voluntarily kept the dependencies to a bare minimum :\
 `Next` + `React` ( + `react-icons` ) + `Tailwind`
 
-# Live Demo
+## Live Demo
 A running demo can be seen [here](https://test-technique-powder.vercel.app/).
 
----
-
-# Build and run
+## Build and run
 
 #### Dependencies
 `make`\
