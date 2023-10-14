@@ -13,9 +13,9 @@ I've voluntarily kept the dependencies to a bare minimum :\
 # Build and run
 
 #### Dependencies
-`make`
-`docker`
-`docker-compose`
+`make`\
+`docker`\
+`docker-compose`\
 
 
 #### Building the app
@@ -32,13 +32,20 @@ If your port 9999 is not available, you can change it by modifying the `NEXT_POR
 in `/Makefile`, AND the `package.json` `npm` commands in `/app/next/package.json`
 
 #### Rebuild and run the app
-`make re`
+```
+make re
+```
 
 #### Build and run the app in production mode (`NODE_ENV=production`)
-`make re -e PROD=1`
+```
+make re -e PROD=1
+```
 
 #### Shutdown the app
-`make down`
+```
+make down
+```
+Remember to explicitely kill the container as it is kept running in the background
 
 ---
 
