@@ -10,7 +10,9 @@ export default function InputDescription ({task, nocheck}:any) {
 		edit,
 		description,
 		form_error,
-		set_description} = useCardContext();
+		completed,
+		set_description
+	} = useCardContext();
 
 		useEffect(()=>{
 			set_description(value);
@@ -28,6 +30,7 @@ export default function InputDescription ({task, nocheck}:any) {
 						p-[0.5rem]
 						text-[1.5rem]
 						${form_error && nocheck?"placeholder:text-red-300":""}
+						${completed && !nocheck?"bg-gray-200":"bg-white"}
 						`}
 
 					value={description}
