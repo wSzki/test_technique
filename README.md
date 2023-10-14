@@ -33,7 +33,7 @@ The app is set to run on `port 9999`.
 http://localhost:9999
 
 If your port 9999 is not available, you can change it by modifying the `NEXT_PORT`
-in `/Makefile`, AND the `package.json` `npm` commands in `/app/next/package.json`
+in `/Makefile` to `NEXT_PORT = YOUR_PORT:9999`
 
 #### Rebuild and run the app
 ```
