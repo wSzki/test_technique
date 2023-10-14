@@ -88,7 +88,7 @@ export function PopupCard ({task}:any) {
 
 	return (
 		<CardContextProvider task={task} invert_edit_logic>
-			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] max-h-[50vh] w-[300px] min-[501px]:w-[50vw] min-[501px]:max-w-[50vh] `}>
+			<div className = {`flex	m-[1rem] rounded-xl shadow-lg border-gray-200 border-[1px] flex-col bg-white p-[0.5rem] max-h-[75vh] w-[300px] min-[501px]:w-[50vw] min-[501px]:max-w-[50vh] `}>
 				<InputTitle nocheck task={task}     />
 				<InputDescription nocheck task={task} />
 				<div className = {`p-[0.5rem] justify-between flex  pt-[1rem]`}>
