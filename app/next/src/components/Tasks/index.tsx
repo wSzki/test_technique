@@ -76,7 +76,7 @@ export default function Tasks () {
 	for (let i = 0; i < 4; i++){mason4.push(<div key={getRandomNumber(i)} className = {`hidden min-[1301px]:max-[3000px]:flex flex-col`} style={{width:"23vw"}}>{splitted_array4[i]}</div>)}
 
 	return (
-		<div className = {`flex w-full justify-center pb-[60px] overflow-hidden`}>
+		<div className = {`flex w-full justify-center overflow-scroll`}>
 			{!array.length && <p className = {`flex justify-center pt-[40vh] absolute w-screen text-[30px]`}>No tasks to show</p>}
 			{mason1}
 			{mason2}

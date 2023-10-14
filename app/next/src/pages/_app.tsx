@@ -31,6 +31,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout ) {
 			fixed
 			h-full
 			w-full
+			pb-[65px]
 			z-[999]
 			justify-between
 			${inter.className}
