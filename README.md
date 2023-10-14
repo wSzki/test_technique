@@ -52,7 +52,7 @@ make down
 Remember to explicitly kill the container as it is kept running in the background
 
 #### Clearing localStorage
-Visit http://localhost:9999/?clear=1 and refresh the page
+Visit http://localhost:9999/?clear=1 and refresh the page.\
 Note that it only works in dev mode.
 
 ---
