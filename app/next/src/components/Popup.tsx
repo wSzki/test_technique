@@ -18,7 +18,7 @@ export default function Popup () {
 				bg-gray-100
 				w-full
 				`}>
-				<div className = {`ml-[25%] mr-25%]`}>
+				<div className = {`flex justify-center`}>
 					<PopupCard/>
 				</div>
 			</div>

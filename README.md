@@ -91,7 +91,8 @@ Main Page:
 [✅] Create a form to add new tasks.
 [✅] The form should have input fields for the task title and description.
 [✅] Validate the form to ensure that the title and description are not empty.
-[✅] Display a success message upon successful addition and an error message for any validation failures.
+[❗] Display a success message upon successful addition and an error message for any validation failures.
+ ->  Success message has a bug
 
 # Responsive Design:
 [✅] Ensure the application is mobile-responsive. It should look and function well on both desktop and mobile devices.
