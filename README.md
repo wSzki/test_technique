@@ -2,7 +2,9 @@
 ---
 # Hello
 This repository contains a front-end React webapp - a task manager.
+
 The front-end framework used is `Next.js` with `TSX`, but there is no advantage over using a plain `npx create-react-app`.
+
 I've voluntarily kept the dependencies to a bare minimum : 
 `Next` + `React` ( + `react-icons` ) + `Tailwind`
 
@@ -22,10 +24,13 @@ git clone https://github.com/wszki/test_technique test_technique_wsz
 cd test_technique_wsz
 make
 ```
-The app is set to run on `port 9999`
+The app is set to run on `port 9999`.
+
 http://localhost:9999
+
 If your port 9999 is not available, you can change it by modifying the `NEXT_PORT`
 in `/Makefile`, AND the `package.json` `npm` commands in `/app/next/package.json`
+
 #### Rebuild and run the app
 `make re`
 
@@ -41,10 +46,14 @@ in `/Makefile`, AND the `package.json` `npm` commands in `/app/next/package.json
 To evaluate your understanding of ReactJS, component structuring, state management, and your ability to create responsive and user-friendly interfaces.
 Create a simple React application called "Task Manager" that allows users to add, delete, and mark tasks as completed.
 Code Structure: Proper component structuring, modularity, and clean code.
+
 Functionality: Ensure all requirements are met and the application works without bugs.
 UI/UX: Intuitive design, ease of use, and mobile-responsiveness.
+
 Bonus: Implementation of optional features.
+
 You have 48 hours from the time of receiving this test to submit your solution.
+
 ```
 # Requirements:
 
