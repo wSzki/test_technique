@@ -28,7 +28,7 @@ export default function Title ({task, nocheck}:any) {
 
 	return (
 		<>
-			<div className = {`flex justify-center align-middle h-full `}>
+			<div className = {`flex justify-center align-middle `}>
 				<input
 					placeholder = {!form_error?"Title":"⚠️ Title is required"}
 

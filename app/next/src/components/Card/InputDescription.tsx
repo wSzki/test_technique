@@ -12,11 +12,10 @@ export default function InputDescription ({task, nocheck}:any) {
 		form_error,
 		set_description} = useCardContext();
 
-	useEffect(()=>{
-		set_description(value);
-	},[cancel_trigger])
+		useEffect(()=>{
+			set_description(value);
+		},[cancel_trigger])
 
-	if (edit)
 		return (
 			<>
 				<textarea
@@ -39,20 +38,4 @@ export default function InputDescription ({task, nocheck}:any) {
 				<hr />
 			</>
 		);
-		else
-			return (
-				<>
-					<p className = {`
-						caret-gray-500
-						focus:outline-none
-						min-h-[250px]
-						p-[0.5rem]
-						text-[1.5rem]
-						whitespace-pre
-						`}>
-						{description}
-					</p>
-					<hr />
-				</>
-			);
 }

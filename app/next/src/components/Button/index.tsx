@@ -102,9 +102,9 @@ export function Button({task, save, remove, cancel, modify }:any) {
 				color     = "bg-red-500"
 				value     = "Delete"
 				onClick   =  {()=>{
+					delete_task(task, task_array, set_task_array);
 					set_form_error(false);
 					set_popup(false);
-					delete_task(task, task_array, set_task_array);
 				}}/>
 		)
 	}
@@ -133,16 +133,17 @@ export function Button({task, save, remove, cancel, modify }:any) {
 				color     = "bg-yellow-400"
 				value     = "Cancel"
 				onClick={()=>{
-					// =========================================================
-					//  Switching to edit mode on a single card
-					//  Enables textarea, and shows additional buttons
-					// =========================================================
-					set_edit(false)
 
 					// =========================================================
 					// Pseudo hook to rerender the card
 					// =========================================================
 					set_cancel_trigger(!cancel_trigger)
+
+					// =========================================================
+					//  Switching to edit mode on a single card
+					//  Enables textarea, and shows additional buttons
+					// =========================================================
+					set_edit(false)
 
 					// =========================================================
 					// Closing Popup

@@ -7,6 +7,7 @@ import {useTaskContext} from "@/contexts/TaskContext";
 
 function TaskFactory () {
 	const {task_array} = useTaskContext();
+
 	const [TaskInputComponentArray, set_TaskInputComponentArray] = useState<any[]>([]);
 
 	// =========================================================================
@@ -16,6 +17,7 @@ function TaskFactory () {
 	// =========================================================================
 	let key = 0;
 	useEffect(() => {
+		console.log(task_array);
 
 		const array = task_array.map((task:Task) => {
 
@@ -27,7 +29,7 @@ function TaskFactory () {
 
 		})
 		set_TaskInputComponentArray(array)
-	}, [task_array.length])
+	}, [task_array,task_array.length])
 	return TaskInputComponentArray;
 }
 
