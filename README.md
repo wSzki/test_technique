@@ -19,6 +19,8 @@ A running demo can be seen [here](https://test-technique-powder.vercel.app/).
 `docker`\
 `docker-compose`
 
+The deployment of this app has only been tested on Linux NixOS 23.05
+
 
 #### Building the app
 ```
