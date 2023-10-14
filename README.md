@@ -64,11 +64,11 @@ Note that it only works in dev mode.
 ---
 
 ## Assignment
-To evaluate your understanding of ReactJS, component structuring, state management, and your ability to create responsive and user-friendly interfaces.
-Create a simple React application called "Task Manager" that allows users to add, delete, and mark tasks as completed.
+To evaluate your understanding of ReactJS, component structuring, state management, and your ability to create responsive and user-friendly interfaces.\
+Create a simple React application called "Task Manager" that allows users to add, delete, and mark tasks as completed.\
 Code Structure: Proper component structuring, modularity, and clean code.
 
-Functionality: Ensure all requirements are met and the application works without bugs.
+Functionality: Ensure all requirements are met and the application works without bugs.\
 UI/UX: Intuitive design, ease of use, and mobile-responsiveness.
 
 Bonus: Implementation of optional features.
